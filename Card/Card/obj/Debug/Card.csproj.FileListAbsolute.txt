@@ -1,0 +1,8 @@
+C:\Users\pcbpy\Documents\GitHub\Card\Card\Card\bin\Debug\Card.exe.config
+C:\Users\pcbpy\Documents\GitHub\Card\Card\Card\bin\Debug\Card.exe
+C:\Users\pcbpy\Documents\GitHub\Card\Card\Card\bin\Debug\Card.pdb
+C:\Users\pcbpy\Documents\GitHub\Card\Card\Card\obj\Debug\Card.Form1.resources
+C:\Users\pcbpy\Documents\GitHub\Card\Card\Card\obj\Debug\Card.Properties.Resources.resources
+C:\Users\pcbpy\Documents\GitHub\Card\Card\Card\obj\Debug\Card.csproj.GenerateResource.Cache
+C:\Users\pcbpy\Documents\GitHub\Card\Card\Card\obj\Debug\Card.exe
+C:\Users\pcbpy\Documents\GitHub\Card\Card\Card\obj\Debug\Card.pdb
