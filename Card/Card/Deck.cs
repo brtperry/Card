@@ -33,9 +33,20 @@ namespace Card
     /// </summary>
     public class Deck : IDeck 
     {
+        // Do diff not as a static member
         private static Random randomiser = new Random();
 
         private List<Card> playingDeck;
+
+        public Func<string, string> Selector = str => str.ToUpper();
+
+        public Func<string, string, int> LenghtOfTwoStrings = (s1, s2) => (s1.Length + s2.Length);
+
+        private Func<int, List<Card>, List<Card>> Take = (i, lst) => lst.Take(i).ToList();
+
+        private Func<List<Card>, List<Card>, List<Card>> Except = (lst, exl) => lst.Except(exl).ToList();
+
+        private Func<Card, List<Card>, bool> Add = (card, deck) => { deck.Add(card); return true; };
 
         public Deck()
         {
@@ -53,6 +64,23 @@ namespace Card
             int[] ranks = Enumerable.Range(0, 13).ToArray();
 
             string[] faces = { "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace" };
+
+            //IEnumerable<String> uppercaseFace = faces.Select(Selector);
+
+            Console.WriteLine(faces.Select(Selector));
+
+
+            //foreach (var ucf in uppercaseFace)
+            //{
+            //    Console.WriteLine(ucf);
+
+            //    var x = LenghtOfTwoStrings("A", ucf);
+
+            //    Console.WriteLine(ucf);
+
+
+            //    Console.WriteLine(LenghtOfTwoStrings("A", ucf));
+            //}
 
             foreach (var suit in suites)
             {
@@ -103,6 +131,7 @@ namespace Card
 
         private void OrderBySuitThenRank()
         {
+            // Lamda to sort deck
             playingDeck = playingDeck.OrderBy(c => (byte)c.Suit).ThenBy(c => c.Rank).ToList();
         }
 
@@ -110,6 +139,7 @@ namespace Card
         {
             if (playingDeck.Count == 0)
             {
+                // Do differently I would return playing Desck instead of null;
                 return null;
             }
             //

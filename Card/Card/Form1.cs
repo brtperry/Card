@@ -21,11 +21,9 @@ namespace Card
         {
             private List<IDeck> decks;
 
-            public DeckController(IDeck id)
+            public DeckController()
             {
                 decks = new List<IDeck>();
-
-
             }
 
             public void Subscribe(IDeck id)
@@ -33,18 +31,43 @@ namespace Card
                 decks.Add(id);
             }
 
-            public void Draw(int i)
+            public void Shuffle()
             {
                 foreach (var id in decks)
                 {
-                    id.Draw(i);
+                    id.Shuffle();
                 }
             }
+
+            public List<Card> Draw(int x, int y)
+            {
+                return decks[x].Draw(y);
+            }
+
+            public List<Card> DrawSorted(int x, int y)
+            {
+                return decks[x].DrawSorted(y);
+            }
+        }
+
+        private class MyNewDeck : Deck
+        {
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            var dc = new DeckController();
+
             var deck = new Deck();
+
+            dc.Subscribe(deck);
+
+            var myDeck = new MyNewDeck();
+
+            dc.Subscribe(myDeck);
+
+            dc.Shuffle();
 
             deck.Shuffle();
 
